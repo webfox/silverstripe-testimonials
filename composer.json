@@ -1,0 +1,22 @@
+{
+  "name"       : "webfox/silverstripe-testimonials",
+  "type"       : "silverstripe-module",
+  "description": "A silverstripe testimonials module",
+  "require"    : {
+    "undefinedoffset/sortablegridfield": "~0.4"
+  },
+  "license"    : "MIT",
+  "authors"    : [
+    {
+      "name" : "Matthew Hailwood",
+      "email": "matt@webfox.co.nz"
+    },
+    {
+      "name" : "Otis Wright",
+      "email": "otis@webfox.co.nz"
+    }
+  ],
+  "extra"      : {
+    "installer-name": "silverstripe-testimonials"
+  }
+}
