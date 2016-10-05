@@ -29,16 +29,6 @@ class TestimonialsExtension extends SiteTreeExtension
             'Testimonial.Summary' => 'Testimonial Preview',
         ]);
 
-        /** @var TabSet $rootTab */
-        //We need to repush Metadata to ensure it is the last tab
-        $rootTab = $fields->fieldByName('Root');
-        $rootTab->push(Tab::create('Testimonials'));
-        if ($rootTab->fieldByName('Metadata')) {
-            $metaChildren = $rootTab->fieldByName('Metadata')->getChildren();
-            $rootTab->removeByName('Metadata');
-            $rootTab->push(Tab::create('Metadata')->setChildren($metaChildren));
-        }
-
         $GridField = GridField::create('Testimonials', 'Testimonials', $this->owner->Testimonials(), $gridConfig);
 
         $fields->addFieldToTab('Root.Testimonials', $GridField);
