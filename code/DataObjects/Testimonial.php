@@ -13,7 +13,7 @@ class Testimonial extends DataObject
     ];
 
     private static $has_one = [
-        'Page' => 'Page',
+        'OwnerObject' => 'DataObject',
         'Image' => 'Image'
     ];
 
@@ -37,7 +37,7 @@ class Testimonial extends DataObject
             ]);
 
             $fields->removeByName('SortOrder');
-            $fields->removeByName('PageID');
+           $fields->removeByName('OwnerObjectID');
         });
 
         $fields = parent::getCMSFields();
