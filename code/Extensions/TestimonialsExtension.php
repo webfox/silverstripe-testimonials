@@ -18,7 +18,7 @@ class TestimonialsExtension extends SiteTreeExtension
             ->addComponent(new GridFieldAddNewButton('buttons-before-left'))
             ->addComponent(new GridFieldToolbarHeader())
             ->addComponent(new  GridFieldSortableHeader())
-            ->addComponent(new GridFieldSortableRows('SortOrder'))
+            ->addComponent(new GridFieldOrderableRows('SortOrder'))
             ->addComponent($dataColumns = new GridFieldDataColumns())
             ->addComponent(new GridFieldEditButton())
             ->addComponent(new GridFieldDeleteAction())
@@ -28,6 +28,12 @@ class TestimonialsExtension extends SiteTreeExtension
             'Title' => 'Author',
             'Testimonial.Summary' => 'Testimonial Preview',
         ]);
+
+        /** @var TabSet $rootTab */
+        //We need to repush Metadata to ensure it is the last tab
+        $rootTab = $fields->fieldByName('Root');
+        $fields->removeByName('Testimonials');
+        $rootTab->push(Tab::create('Testimonials'));
 
         $GridField = GridField::create('Testimonials', 'Testimonials', $this->owner->Testimonials(), $gridConfig);
 
