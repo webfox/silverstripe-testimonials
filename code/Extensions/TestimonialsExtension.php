@@ -33,11 +33,12 @@ class TestimonialsExtension extends SiteTreeExtension
         //We need to repush Metadata to ensure it is the last tab
         $rootTab = $fields->fieldByName('Root');
         $fields->removeByName('Testimonials');
-        $rootTab->push(Tab::create('Testimonials'));
-
-        $GridField = GridField::create('Testimonials', 'Testimonials', $this->owner->Testimonials(), $gridConfig);
-
-        $fields->addFieldToTab('Root.Testimonials', $GridField);
+        
+        if ($this->owner->exists()) {
+            $rootTab->push(Tab::create('Testimonials'));
+            $GridField = GridField::create('Testimonials', 'Testimonials', $this->owner->Testimonials(), $gridConfig);
+            $fields->addFieldToTab('Root.Testimonials', $GridField);
+        }
 
         return $fields;
     }
