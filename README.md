@@ -2,13 +2,13 @@
 A FAQ module for silverstripe that implements the backend on any pagetype via an extension but does not dictate the frontend!
 
 ## How to use
+This module supports installation via composer only:
 
-### Install through composer
-```bash
+```sh
 composer require webfox/silverstripe-testimonials
 ```
 
-### Apply to any pagetype you want the "Faq Segments" tab to appear on
+### Apply to any PageType you want the "Testimonials" tab to appear on
 (can be applied to multiple page types)
 ```yaml
 Page:
@@ -19,12 +19,12 @@ Page:
 ### Use on the frontend
 
 ```
-<% if $testimonials.exists %>
-    <% loop $testimonials %>
+<% if $Testimonials %>
+    <% loop $Testimonials %>
         <h2>Author: {$Title}</h2>
         <p>Company: {$Company}</p>
         <p>Date: {$Date}</p>
-        <img src="{$Image.Url}" />
+        <img src="{$Image.URL}" />
         <p>Testimonial:</p>
         {$Testimonial}
     <% end_loop %>
